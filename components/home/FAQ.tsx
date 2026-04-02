@@ -7,16 +7,18 @@ import { faqs } from '@/data/faq';
 export const FAQ: React.FC = () => {
   return (
     <section className="py-20 bg-white">
-      <Container>
-        <SectionHeading
-          title="Frequently asked questions"
-          subtitle="Find answers to common questions about our Airbnb assistant services."
-        />
-        
-        <div className="max-w-3xl mx-auto">
-          <Accordion items={faqs} defaultOpen="1" />
+      <div className="max-w-full mx-auto px-4">
+        <div className="bg-[#F9FAFB] rounded-xl p-8">
+          <SectionHeading
+            title="Frequently asked questions"
+            subtitle="Find answers to common questions about our Airbnb assistant services."
+          />
+          
+          <div className="max-w-3xl mx-auto">
+            <Accordion items={faqs} defaultOpen="1" />
+          </div>
         </div>
-      </Container>
+      </div>
     </section>
   );
 };

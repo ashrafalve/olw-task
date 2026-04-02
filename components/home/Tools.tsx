@@ -17,7 +17,7 @@ export const Tools: React.FC = () => {
         </div>
       </Container>
 
-      <div className="w-full bg-slate-200 py-10">
+      <div className="w-full bg-[#F6F6F6] py-10">
         <Container>
           <div className="rounded-xl">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
@@ -32,7 +32,7 @@ export const Tools: React.FC = () => {
                       alt={tool.name}
                       width={60}
                       height={30}
-                      className="h-6 w-auto object-contain"
+                      className="h-10 w-auto object-contain"
                     />
                   </div>
                 </Card>

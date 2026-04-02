@@ -130,7 +130,10 @@ export const Hero: React.FC = () => {
                 />
               </svg>
             </Button>
-            <button className="text-black hover:text-gray-700 text-xs font-medium transition-colors relative group">
+            <button 
+              onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
+              className="text-black hover:text-gray-700 text-sm font-medium transition-colors relative group"
+            >
               See Pricing
               <span className="absolute bottom-0 left-0 w-full h-0.5 bg-black transform scale-x-0 transition-transform duration-200 group-hover:scale-x-100"></span>
             </button>

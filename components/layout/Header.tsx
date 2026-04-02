@@ -1,4 +1,6 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Container } from './Container';
@@ -6,10 +8,11 @@ import { Button } from '../ui/Button';
 import { navLinks } from '@/data/navLinks';
 
 export const Header: React.FC = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
-    <>
-      <header className="bg-white sticky top-0 z-50">
-        <Container>
+    <header className="bg-white sticky top-0 z-50">
+      <Container>
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
@@ -39,7 +42,7 @@ export const Header: React.FC = () => {
           </nav>
 
           {/* CTA Button */}
-          <div className="flex items-center">
+          <div className="hidden md:flex items-center">
             <Button size="sm">
               Schedule A Meeting
               <svg 
@@ -61,7 +64,10 @@ export const Header: React.FC = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <button className="md:hidden p-2">
+          <button 
+            className="md:hidden p-2"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
             <svg
               width="24"
               height="24"
@@ -69,17 +75,46 @@ export const Header: React.FC = () => {
               fill="none"
               className="text-gray-600"
             >
-              <path
-                d="M3 12H21M3 6H21M3 18H21"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
+              {isMenuOpen ? (
+                <path
+                  d="M6 18L18 6M6 6L18 18"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                />
+              ) : (
+                <path
+                  d="M3 12H21M3 6H21M3 18H21"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                />
+              )}
             </svg>
           </button>
         </div>
       </Container>
+
+      {/* Mobile Menu */}
+      {isMenuOpen && (
+        <div className="md:hidden bg-white border-t border-gray-200">
+          <div className="px-4 py-4 space-y-4">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="block text-gray-600 text-sm font-medium hover:text-pink-500"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {link.label}
+              </Link>
+            ))}
+            <Button size="sm" className="w-full">
+              Schedule A Meeting
+            </Button>
+          </div>
+        </div>
+      )}
     </header>
-    </>
   );
 };

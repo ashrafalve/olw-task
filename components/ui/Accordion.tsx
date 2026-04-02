@@ -50,8 +50,8 @@ export const Accordion: React.FC<AccordionProps> = ({
             <span className="font-medium text-gray-900">{item.question}</span>
             <span
               className={cn(
-                'transform transition-transform duration-200',
-                openItems.has(item.id) ? 'rotate-45' : ''
+                'transform transition-transform duration-200 w-8 h-8 rounded-full flex items-center justify-center',
+                openItems.has(item.id) ? 'rotate-45 bg-[#F24472] text-white' : 'bg-[#F24472]/10 text-[#F24472]'
               )}
             >
               <svg
@@ -59,7 +59,7 @@ export const Accordion: React.FC<AccordionProps> = ({
                 height="20"
                 viewBox="0 0 20 20"
                 fill="none"
-                className="text-gray-500"
+                className="text-[#F24472]"
               >
                 <path
                   d="M10 5V15M5 10H15"

@@ -2,14 +2,13 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { Container } from '../layout/Container';
 import { Button } from '../ui/Button';
 
 export const ContactSupport: React.FC = () => {
   return (
-    <section className="border-t-8 border-white bg-white">
-      <Container>
-        <div className="py-20 md:py-24 text-center">
+    <section className="py-10 bg-white">
+      <div className="max-w-6xl mx-auto px-4">
+        <div className="bg-[#F9FAFB] rounded-xl p-6 text-center">
           {/* Avatar Group */}
           <div className="flex justify-center mb-8">
             <div className="flex items-center">
@@ -55,7 +54,7 @@ export const ContactSupport: React.FC = () => {
             Get in touch
           </Button>
         </div>
-      </Container>
+      </div>
     </section>
   );
 };
