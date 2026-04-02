@@ -1,7 +1,14 @@
 import React from 'react';
+import Image from 'next/image';
 import { Container } from '../layout/Container';
 import { SectionHeading } from '../layout/SectionHeading';
 import { steps } from '@/data/steps';
+
+const stepImages = [
+  '/assets/Group 39878.png',
+  '/assets/Group 39879.png',
+  '/assets/Group 39881.png'
+];
 
 export const GettingStarted: React.FC = () => {
   return (
@@ -15,23 +22,18 @@ export const GettingStarted: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {steps.map((step, index) => (
             <div key={step.id} className="text-center relative">
-              {/* Step Number */}
-              <div className="mb-6 relative">
-                <div className="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl font-bold text-pink-600">
-                    {step.number}
-                  </span>
-                </div>
-                
-                {/* Connector Line */}
-                {index < steps.length - 1 && (
-                  <div className="hidden md:block absolute top-8 left-full w-full h-0.5 bg-pink-200 -translate-y-1/2"></div>
-                )}
-              </div>
-              
               {/* Icon */}
-              <div className="w-12 h-12 mx-auto mb-4 flex items-center justify-center">
-                <div className="w-8 h-8 bg-gray-200 rounded"></div>
+              <div className="relative w-64 h-44 mx-auto mb-6 flex items-center justify-center rounded-xl border border-gray-200 bg-white shadow-sm p-4">
+                <div className="absolute -top-5 -left-5 w-14 h-14 rounded-full bg-white border-2 border-pink-600 flex items-center justify-center text-pink-600 font-bold text-lg">
+                  {step.number.toString().padStart(2, '0')}
+                </div>
+                <Image
+                  src={stepImages[index]}
+                  alt={step.title}
+                  width={56}
+                  height={56}
+                  className="w-14 h-14 object-contain"
+                />
               </div>
               
               {/* Title */}

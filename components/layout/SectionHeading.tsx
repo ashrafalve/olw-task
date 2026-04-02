@@ -9,6 +9,10 @@ interface SectionHeadingProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export const SectionHeading = React.forwardRef<HTMLDivElement, SectionHeadingProps>(
   ({ className, title, subtitle, centered = true, ...props }, ref) => {
+    const words = title.split(' ');
+    const lastWord = words.pop();
+    const remainingTitle = words.join(' ');
+    
     return (
       <div
         ref={ref}
@@ -20,7 +24,7 @@ export const SectionHeading = React.forwardRef<HTMLDivElement, SectionHeadingPro
         {...props}
       >
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-          {title}
+          {remainingTitle} <span className="text-pink-500">{lastWord}</span>
         </h2>
         {subtitle && (
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">

@@ -8,7 +8,7 @@ import { navLinks } from '@/data/navLinks';
 export const Header: React.FC = () => {
   return (
     <>
-      <header className="bg-white border-b border-gray-100 sticky top-0 z-50">
+      <header className="bg-white sticky top-0 z-50">
         <Container>
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -80,8 +80,6 @@ export const Header: React.FC = () => {
         </div>
       </Container>
     </header>
-    {/* Gradient Effect Below Border */}
-    <div className="h-1 bg-gradient-to-r from-pink-500 via-pink-600 to-red-500"></div>
     </>
   );
 };
