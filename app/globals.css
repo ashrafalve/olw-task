@@ -98,8 +98,21 @@ html {
   }
 }
 
+@keyframes slideLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 .animate-fade-in-up {
   animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-slide-left {
+  animation: slideLeft 20s linear infinite;
 }
 
 /* Grid pattern utility */

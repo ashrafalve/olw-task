@@ -7,8 +7,9 @@ import { navLinks } from '@/data/navLinks';
 
 export const Header: React.FC = () => {
   return (
-    <header className="bg-white border-b border-gray-100 sticky top-0 z-50">
-      <Container>
+    <>
+      <header className="bg-white border-b border-gray-100 sticky top-0 z-50">
+        <Container>
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
@@ -29,9 +30,10 @@ export const Header: React.FC = () => {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors"
+                className="text-gray-600 text-sm font-medium transition-all duration-200 relative group hover:text-pink-500"
               >
                 {link.label}
+                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-pink-500 transform scale-x-0 transition-transform duration-200 group-hover:scale-x-100"></span>
               </Link>
             ))}
           </nav>
@@ -39,7 +41,22 @@ export const Header: React.FC = () => {
           {/* CTA Button */}
           <div className="flex items-center">
             <Button size="sm">
-              Get Started Now
+              Schedule A Meeting
+              <svg 
+                width="16" 
+                height="16" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                className="ml-2"
+              >
+                <path
+                  d="M5 12H19M19 12L12 5M19 12L12 19"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
             </Button>
           </div>
 
@@ -63,5 +80,8 @@ export const Header: React.FC = () => {
         </div>
       </Container>
     </header>
+    {/* Gradient Effect Below Border */}
+    <div className="h-1 bg-gradient-to-r from-pink-500 via-pink-600 to-red-500"></div>
+    </>
   );
 };
